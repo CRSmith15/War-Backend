@@ -1,3 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :name, :id, :games
+
+  def games 
+    self.object.games.map do |g|
+      {pairs: g.pairs}
+    end
+  end
 end
