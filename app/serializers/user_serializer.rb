@@ -3,7 +3,8 @@ class UserSerializer < ActiveModel::Serializer
 
   def games 
     self.object.games.map do |g|
-      {pairs: g.pairs}
+      {pairs: g.pairs,
+       user_id: g.user_id}
     end
   end
 end
